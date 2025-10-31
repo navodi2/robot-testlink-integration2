@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.1 on win32)" generated="2025-10-31T17:52:43.978206" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\User\Downloads\test python\tests">
+<suite id="s1-s1" name="Login Test" source="C:\Users\User\Downloads\test python\tests\login_test.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-10-31T17:52:44.328885" level="INFO">Opening browser 'chrome' to base url 'https://practicetestautomation.com/practice-test-login/'.</msg>
+<arg>https://practicetestautomation.com/practice-test-login/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-31T17:52:44.328885" elapsed="29.555253"/>
+</kw>
+<test id="s1-s1-t1" name="TC-1001 Verify successful login with valid credentials" line="14">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T17:53:13.891139" level="INFO">Typing text 'student' into text field 'id=username'.</msg>
+<arg>id=username</arg>
+<arg>${VALID_USER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T17:53:13.889137" elapsed="0.142988"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T17:53:14.033126" level="INFO">Typing text 'Password123' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${VALID_PASS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T17:53:14.033126" elapsed="0.117438"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-10-31T17:53:14.169144" level="INFO">Clicking button 'id=submit'.</msg>
+<arg>id=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-31T17:53:14.168009" elapsed="16.024324"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-10-31T17:53:30.224899" level="INFO">Current page contains text 'Logged In Successfully'.</msg>
+<arg>Logged In Successfully</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-10-31T17:53:30.193334" elapsed="0.032569"/>
+</kw>
+<status status="PASS" start="2025-10-31T17:53:13.888137" elapsed="16.337766"/>
+</test>
+<test id="s1-s1-t2" name="TC-1002 Verify login fails with invalid username or password" line="20">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T17:53:30.226900" level="INFO">Typing text 'wronguser' into text field 'id=username'.</msg>
+<msg time="2025-10-31T17:53:30.359411" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-10-31T17:53:30.359411" level="FAIL">Element with locator 'id=username' not found.</msg>
+<arg>id=username</arg>
+<arg>${INVALID_USER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-10-31T17:53:30.226900" elapsed="0.140415">Element with locator 'id=username' not found.</status>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>${INVALID_PASS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.369463" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>id=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.369463" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Your username is invalid!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.369463" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-10-31T17:53:30.226900" elapsed="0.143757">Element with locator 'id=username' not found.</status>
+</test>
+<test id="s1-s1-t3" name="TC-1003 Verify login fails with empty username or password" line="26">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T17:53:30.371667" level="FAIL">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</msg>
+<arg>id=username</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-10-31T17:53:30.371667" elapsed="0.000000">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=password</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.372666" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>id=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.372666" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Both fields are required</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.372666" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-10-31T17:53:30.371667" elapsed="0.000999">Keyword 'SeleniumLibrary.Input Text' expected 2 to 3 arguments, got 1.</status>
+</test>
+<test id="s1-s1-t4" name="TC-1004 Verify Forgot Password functionality works correctly" line="32">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-10-31T17:53:30.374666" level="INFO">Clicking link 'xpath=//a[contains(text(),'Forgot your password?')]'.</msg>
+<msg time="2025-10-31T17:53:30.476673" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-10-31T17:53:30.478179" level="FAIL">Link with locator 'xpath=//a[contains(text(),'Forgot your password?')]' not found.</msg>
+<arg>xpath=//a[contains(text(),'Forgot your password?')]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="FAIL" start="2025-10-31T17:53:30.373666" elapsed="0.106521">Link with locator 'xpath=//a[contains(text(),'Forgot your password?')]' not found.</status>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Enter your email to reset password</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.480187" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-10-31T17:53:30.373666" elapsed="0.106521">Link with locator 'xpath=//a[contains(text(),'Forgot your password?')]' not found.</status>
+</test>
+<test id="s1-s1-t5" name="TC-1005 Verify session expires after inactivity" line="36">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-31T17:53:30.482248" level="INFO">Typing text 'student' into text field 'id=username'.</msg>
+<msg time="2025-10-31T17:53:30.559266" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-10-31T17:53:30.559266" level="FAIL">Element with locator 'id=username' not found.</msg>
+<arg>id=username</arg>
+<arg>${VALID_USER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-10-31T17:53:30.481188" elapsed="0.079086">Element with locator 'id=username' not found.</status>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>${VALID_PASS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.560274" elapsed="0.000000"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>id=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.561275" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.562274" elapsed="0.000000"/>
+</kw>
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.562274" elapsed="0.000000"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Please log in again</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2025-10-31T17:53:30.562274" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-10-31T17:53:30.481188" elapsed="0.082088">Element with locator 'id=username' not found.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-10-31T17:53:30.564274" elapsed="2.738701"/>
+</kw>
+<status status="FAIL" start="2025-10-31T17:52:43.999576" elapsed="49.303399"/>
+</suite>
+<status status="FAIL" start="2025-10-31T17:52:43.979170" elapsed="49.325216"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="1" fail="4" skip="0">Tests</stat>
+<stat name="Login Test" id="s1-s1" pass="1" fail="4" skip="0">Tests.Login Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
