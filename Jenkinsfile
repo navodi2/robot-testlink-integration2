@@ -15,13 +15,14 @@ pipeline {
         }
 
         stage('Setup Python') {
-            steps {
-                echo "Setting up Python virtual environment..."
-                bat "${env.PYTHON} -m venv .venv"
-                bat ".venv\\Scripts\\pip.exe install --upgrade pip"
-                bat ".venv\\Scripts\\pip.exe install -r requirements.txt"
-            }
-        }
+    steps {
+        bat '''
+        python -m venv venv
+        call venv\\Scripts\\activate
+        pip install -r requirements.txt
+        '''
+    }
+}
 
         stage('Run Robot Tests') {
             steps {
