@@ -15,27 +15,30 @@ pipeline {
         }
 
         stage('Setup Python') {
-    steps {
-        bat '''
-        python -m venv venv
-        call venv\\Scripts\\activate
-        pip install -r requirements.txt
-        '''
-    }
-}
+            steps {
+                bat """
+                "${env.PYTHON}" -m venv venv
+                call venv\\Scripts\\activate
+                venv\\Scripts\\pip install --upgrade pip
+                venv\\Scripts\\pip install -r requirements.txt
+                """
+            }
+        }
 
         stage('Run Robot Tests') {
             steps {
-                echo "Running Robot Framework tests..."
-                bat "if not exist results mkdir results"
-                bat ".venv\\Scripts\\robot.exe --outputdir results tests"
+                bat """
+                if not exist results mkdir results
+                venv\\Scripts\\robot --outputdir results tests
+                """
             }
         }
 
         stage('Update TestLink') {
             steps {
-                echo "Reporting results to TestLink..."
-                bat ".venv\\Scripts\\python.exe tools\\rf_to_testlink.py"
+                bat """
+                venv\\Scripts\\python tools\\rf_to_testlink.py
+                """
             }
         }
     }
