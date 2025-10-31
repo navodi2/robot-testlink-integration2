@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
-Suite Setup    Open Browser    https://practicetestautomation.com/practice-test-login/    chrome
+Suite Setup    Open Browser    https://practicetestautomation.com/practice-test-login/    headlesschrome
+
 Suite Teardown    Close Browser
 
 *** Variables ***
@@ -12,6 +13,7 @@ ${INVALID_PASS}  wrongpass
 *** Test Cases ***
 
 TC-1001 Verify successful login with valid credentials
+    Wait Until Element Is Visible    id=username    10s
     Input Text    id=username    ${VALID_USER}
     Input Text    id=password    ${VALID_PASS}
     Click Button    id=submit
